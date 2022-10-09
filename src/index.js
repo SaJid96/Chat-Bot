@@ -16,21 +16,20 @@ app.use(express.static(publicDirectory))
 
 
 
-const port=process.env.PORT || 3000
-let count=0
+const port=process.env.PORT || 30001
 
 io.on('connection',(socket)=>{
     console.log('New websocket connection');
 
-    socket.emit('countUpdated',0)
+    socket.emit('message','welcome')
 
-    socket.on('increment',()=>{
-        count++
-        // socket.emit('countUpdated',count)
-        io.emit('countUpdated',count)
+    socket.on('userMesssage',(message)=>{
 
- 
+        io.emit('message',message)
+
     })
+
+    
 })
 
 
