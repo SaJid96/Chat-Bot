@@ -22,6 +22,7 @@ io.on('connection',(socket)=>{
     console.log('New websocket connection');
 
     socket.emit('message','welcome')
+    socket.broadcast.emit('message','A new user joined')
 
     socket.on('userMesssage',(message)=>{
 
@@ -29,6 +30,9 @@ io.on('connection',(socket)=>{
 
     })
 
+    socket.on('disconnect',()=>{
+        io.emit('message','A user left')
+    })
     
 })
 
