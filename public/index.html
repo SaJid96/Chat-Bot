@@ -5,24 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link href="Assets/fontawesome-free-6.2.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="Assets/fontawesome-free-6.2.0-web/css/brands.css" rel="stylesheet">
+    <link href="Assets/fontawesome-free-6.2.0-web/css/solid.css" rel="stylesheet">
+    <title>Chat App</title>
 </head>
 
 <body>
     <div class="container chat-container d-flex flex-column justify-content-center align-items-center">
         <h1>chat App</h1>
-        <!-- <button class="btn btn-success" id="increment">+1</button> -->
 
+
+        <!-- <button class="btn btn-success" id="increment">+1</button> -->
+        
+        <!-- uses solid style -->
+     
         <form id="chatSend" class="d-flex">
 
             <input name="message" class="form-control" type="text" placeholder="Enter your message">
             <button class="btn btn-success"  >SEND</button>
 
         </form>
+<div class="d-flex  align-items-center justify-content-between mt-3" style="width: 160px;">
+    <button class="btn btn-primary ">Send Location</button><i class="fa-regular fa-location-dot" style="font-size: xx-large;"></i>
+
+</div>
 
     </div>
 
