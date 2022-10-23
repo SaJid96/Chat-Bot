@@ -3,7 +3,7 @@ const path=require('path')
 const http=require('http')
 const socketio=require('socket.io');
 const Filter = require('bad-words')
-
+const {generateMessage}=require('./utils/messages')
 
 
 
@@ -22,8 +22,8 @@ const port=process.env.PORT || 30001
 io.on('connection',(socket)=>{
     console.log('New websocket connection');
 
-    socket.emit('message','welcome')
-    socket.broadcast.emit('message','A new user joined')
+    socket.emit('message',generateMessage('Welcome'))
+    socket.broadcast.emit('message',generateMessage('A new user joined'))
 
     socket.on('userMesssage',(message,callback)=>{
 
@@ -33,13 +33,13 @@ io.on('connection',(socket)=>{
             return callback('Profanity is not allowed!')
         }
 
-        io.emit('message', message)
+        io.emit('message', generateMessage(message))
         callback()
 
     })
 
     socket.on('disconnect',()=>{
-        io.emit('message','A user left')
+        io.emit('message',generateMessage('A user left'))
     })
     socket.on('sendLocation',(location,callback)=>{
 
