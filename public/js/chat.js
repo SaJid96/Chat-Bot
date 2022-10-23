@@ -5,8 +5,19 @@ const socket = io()
 const $messageForm = document.querySelector('#chatSend')
 const $messageFormInput = document.querySelector('input')
 const $messageFormButton = document.querySelector('button')
+const  $locationButton=document.querySelector('#send-location')
+const $messages=document.querySelector('#messages')
+
+// Templates
+
+const $messageTemplate=document.querySelector('#message-template').innerHTML
 
 socket.on('message', (message) => {
+    console.log(message);
+    const html=Mustache.render($messageTemplate,{
+        message
+    })
+    $messages.insertAdjacentHTML('beforeend',html)
 
     console.log("this message is from  server!!");
 })
@@ -16,7 +27,7 @@ $messageForm.addEventListener('submit', (e) => {
 
     $messageFormButton.setAttribute('disabled', 'disabled')
 
-    const message = e.target.elements.message
+    const message = e.target.elements.message.value
 
     socket.emit('userMesssage', message, (error) => {
         setTimeout(() => {
@@ -34,7 +45,6 @@ $messageForm.addEventListener('submit', (e) => {
 })
 
 
-const  $locationButton=document.querySelector('#send-location')
 
 $locationButton.addEventListener('click', () => {
 
