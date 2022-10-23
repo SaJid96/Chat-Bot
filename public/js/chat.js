@@ -12,6 +12,11 @@ const $messages=document.querySelector('#messages')
 
 const $messageTemplate=document.querySelector('#message-template').innerHTML
 
+socket.on('locationmessage',(url)=>{
+
+    console.log(url);
+})
+
 socket.on('message', (message) => {
     console.log(message);
     const html=Mustache.render($messageTemplate,{

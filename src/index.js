@@ -43,12 +43,10 @@ io.on('connection',(socket)=>{
     })
     socket.on('sendLocation',(location,callback)=>{
 
-        io.emit('message',`https://www.google.com/maps?q=${location.latitude},${location.longitude} `,()=>{
-     
-    callback()
-    })
+        io.emit('locationmessage',`https://www.google.com/maps?q=${location.latitude},${location.longitude} `)
+        callback()
 
-    },)
+    })
     
 })
 
