@@ -5,34 +5,35 @@ const socket = io()
 const $messageForm = document.querySelector('#chatSend')
 const $messageFormInput = document.querySelector('input')
 const $messageFormButton = document.querySelector('button')
-const  $locationButton=document.querySelector('#send-location')
-const $messages=document.querySelector('#messages')
-const $currentLocation=document.querySelector('#location')
+const $locationButton = document.querySelector('#send-location')
+const $messages = document.querySelector('#messages')
+const $currentLocation = document.querySelector('#location')
 // Templates
 
-const $messageTemplate=document.querySelector('#message-template').innerHTML
-const $locationTemplate=document.querySelector('#locaion-template').innerHTML
+const $messageTemplate = document.querySelector('#message-template').innerHTML
+const $locationTemplate = document.querySelector('#locaion-template').innerHTML
 
-socket.on('locationmessage',(url)=>{
+socket.on('locationmessage', (location) => {
 
 
-    console.log(url);
+    console.log(location.url);
 
-    const html=Mustache.render($locationTemplate,
+    const html = Mustache.render($locationTemplate,
         {
-            url
+            url:location.url,
+            createdAt: moment(message.createdAt).format('h:mm a')
         })
-        $currentLocation.insertAdjacentHTML('beforeend',html)
+    $currentLocation.insertAdjacentHTML('beforeend', html)
 
 })
 
 socket.on('message', (message) => {
     console.log(message);
-    const html=Mustache.render($messageTemplate,{
-        message:message.text,
-        createdAt:moment(message.createdAt).format('h:mm a')
+    const html = Mustache.render($messageTemplate, {
+        message: message.text,
+        createdAt: moment(message.createdAt).format('h:mm a')
     })
-    $messages.insertAdjacentHTML('beforeend',html)
+    $messages.insertAdjacentHTML('beforeend', html)
 
     console.log("this message is from  server!!");
 })
@@ -67,7 +68,7 @@ $locationButton.addEventListener('click', () => {
         return alert('Geo location not supported by Browser')
     }
 
-    $locationButton.setAttribute('disabled','disabled')
+    $locationButton.setAttribute('disabled', 'disabled')
 
     navigator.geolocation.getCurrentPosition((position) => {
         var location = {
@@ -76,9 +77,9 @@ $locationButton.addEventListener('click', () => {
         }
         socket.emit('sendLocation', location, () => {
             console.log('successfully location shared');
-            setTimeout(()=>{
+            setTimeout(() => {
                 $locationButton.removeAttribute('disabled')
-            },2000)
+            }, 2000)
 
         })
 
