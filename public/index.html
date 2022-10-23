@@ -27,13 +27,15 @@
 
         </div>
 
+        <div id="location"></div>
+
         <!-- <button class="btn btn-success" id="increment">+1</button> -->
         
         <!-- uses solid style -->
      
         <form id="chatSend" class="d-flex ">
 
-            <input name="message" class="form-control" type="text" placeholder="Enter your message">
+            <input name="message" class="form-control" type="text" placeholder="Enter your message" >
             <button class="btn btn-success"  >SEND</button>
 
         </form>
@@ -50,6 +52,11 @@
         </div>
 
 
+    </script>
+    <script id="locaion-template" type="text/html">
+<div>
+    <a href="{{url}}" target="_blank">My current Location</a>
+</div>
     </script>
 
     <script src="./socket.io/socket.io.js"></script>

@@ -7,14 +7,23 @@ const $messageFormInput = document.querySelector('input')
 const $messageFormButton = document.querySelector('button')
 const  $locationButton=document.querySelector('#send-location')
 const $messages=document.querySelector('#messages')
-
+const $currentLocation=document.querySelector('#location')
 // Templates
 
 const $messageTemplate=document.querySelector('#message-template').innerHTML
+const $locationTemplate=document.querySelector('#locaion-template').innerHTML
 
 socket.on('locationmessage',(url)=>{
 
+
     console.log(url);
+
+    const html=Mustache.render($locationTemplate,
+        {
+            url
+        })
+        $currentLocation.insertAdjacentHTML('beforeend',html)
+
 })
 
 socket.on('message', (message) => {
