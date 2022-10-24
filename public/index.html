@@ -2,17 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="favicon.png">
+   
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="./css/styles.min.css">
-    
+
     <title>Chat App</title>
 </head>
 
@@ -20,11 +18,26 @@
     <div class="centered-form">
 
         <div class="centered-form__box ">
-            Join
+            <h1 class="text-center join">Join</h1>
+            <form action="/chat.html">
+                <div class="form-floating">
+                    <input  id="floatingInput"  type="text" class="form-control" name="username" placeholder="Display name" required>
+                    <label for="floatingInput">Display name</label>
+                </div>
+
+                    <div class="form-floating">
+                        <input  id="floatingInput"   type="text"  class="form-control" name="room" placeholder="Room" required>
+                        <label for="floatingInput">Room</label>
+                   
+                    </div>
+                    
+                
+                <button>Join</button>
+            </form>
         </div>
 
     </div>
-    
+
 </body>
 
 </html>
