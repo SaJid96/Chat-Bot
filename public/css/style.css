@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600&family=Roboto+Slab:wght@500&display=swap');
+*{
+	font-family: 'EB Garamond', serif;
+font-family: 'Roboto Slab', serif;
+
+}
+.chat-container{
+    height: 500px;
+	
+}
+.chat{
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 20px 50px #6001D324;
+opacity: 1;
+border-radius: 20px;
+width: 30rem;
+    text-align: center;
+}
+
+
+
+.form-control {
+	background: #FFFFFF 0% 0% no-repeat padding-box !important;
+	box-shadow: inset 0px 3px 6px #0000001A !important;
+	border: 1px solid #E8E8E8 !important;
+	border-radius: 30px !important;
+	opacity: 1 !important;
+}
+
+.btn{
+    border-radius: 20px;
+}
+
+.chat-form{
+    margin-top: 10px;
+}
+
+.user-message{
+	color: red;
+}
