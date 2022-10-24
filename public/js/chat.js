@@ -37,9 +37,12 @@ $messageForm.addEventListener('submit', (e) => {
     const message = e.target.elements.message.value
 
     socket.emit('sendMessage', message, (error) => {
-        $messageFormButton.removeAttribute('disabled')
-        $messageFormInput.value = ''
-        $messageFormInput.focus()
+        setTimeout(()=>{
+            $messageFormButton.removeAttribute('disabled')
+            $messageFormInput.value = ''
+            $messageFormInput.focus()
+        },2000)
+        
 
         if (error) {
             return console.log(error)
@@ -61,7 +64,11 @@ $sendLocationButton.addEventListener('click', () => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }, () => {
-            $sendLocationButton.removeAttribute('disabled')
+            setTimeout(()=>{
+                $sendLocationButton.removeAttribute('disabled')
+
+
+            },2000)
             console.log('Location shared!')  
         })
     })
