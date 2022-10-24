@@ -11,9 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link href="Assets/fontawesome-free-6.2.0-web/css/fontawesome.css" rel="stylesheet">
-    <link href="Assets/fontawesome-free-6.2.0-web/css/brands.css" rel="stylesheet">
-    <link href="Assets/fontawesome-free-6.2.0-web/css/solid.css" rel="stylesheet">
+    
     <title>Chat App</title>
 </head>
 
@@ -33,7 +31,7 @@
         
         <!-- uses solid style -->
      
-        <form id="chatSend" class="d-flex ">
+        <form id="message-form" class="d-flex ">
 
             <input name="message" class="form-control" type="text" placeholder="Enter your message" >
             <button class="btn btn-success"  >SEND</button>
@@ -53,10 +51,10 @@
 
 
     </script>
-    <script id="locaion-template" type="text/html">
-<div>
-    <a href="{{url}}" target="_blank">My current Location</a>
-</div>
+    <script id="location-message-template" type="text/html">
+        <div>
+            <p>{{createdAt}} - <a href="{{url}}" target="_blank">My current location</a></p>
+        </div>
     </script>
 
     <script src="./socket.io/socket.io.js"></script>
