@@ -12,8 +12,7 @@ const messageTemplate = document.querySelector('#message-template').innerHTML
 const locationMessageTemplate = document.querySelector('#location-message-template').innerHTML
 
 // Options
-const {username,room}=Qs.parse(location.search,{ignoreQueryPrefix:true})
-
+const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 socket.on('message', (message) => {
     console.log(message)
@@ -41,12 +40,9 @@ $messageForm.addEventListener('submit', (e) => {
     const message = e.target.elements.message.value
 
     socket.emit('sendMessage', message, (error) => {
-        setTimeout(()=>{
-            $messageFormButton.removeAttribute('disabled')
-            $messageFormInput.value = ''
-            $messageFormInput.focus()
-        },2000)
-        
+        $messageFormButton.removeAttribute('disabled')
+        $messageFormInput.value = ''
+        $messageFormInput.focus()
 
         if (error) {
             return console.log(error)
@@ -68,16 +64,15 @@ $sendLocationButton.addEventListener('click', () => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }, () => {
-            setTimeout(()=>{
-                $sendLocationButton.removeAttribute('disabled')
-
-
-            },2000)
+            $sendLocationButton.removeAttribute('disabled')
             console.log('Location shared!')  
         })
     })
 })
 
-
-
-socket.emit('join',{username,room})
+socket.emit('join', { username, room }, (error) => {
+    if (error) {
+        alert(error)
+        location.href = '/'
+    }
+})

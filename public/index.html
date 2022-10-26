@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   
+
     <link rel="icon" type="image/x-icon" href="./img/favicon.png">
 
     <!-- CSS only -->
@@ -15,29 +15,47 @@
 </head>
 
 <body>
+   
+    <div class="toast-container position-fixed top-0 end-1 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
     <div class="centered-form">
 
         <div class="centered-form__box ">
             <h1 class="text-center join">Join</h1>
             <form action="/chat.html">
                 <div class="form-floating">
-                    <input  id="floatingInput"  type="text" class="form-control" name="username" placeholder="Display name" required>
+                    <input id="floatingInput" type="text" class="form-control" name="username"
+                        placeholder="Display name" required>
                     <label for="floatingInput">Display name</label>
                 </div>
 
-                    <div class="form-floating">
-                        <input  id="floatingInput"   type="text"  class="form-control" name="room" placeholder="Room" required>
-                        <label for="floatingInput">Room</label>
-                   
-                    </div>
-                    
-                
+                <div class="form-floating">
+                    <input id="floatingInput" type="text" class="form-control" name="room" placeholder="Room" required>
+                    <label for="floatingInput">Room</label>
+
+                </div>
+
+
                 <button class="btn btn-success">Join</button>
             </form>
+            <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
+
         </div>
 
     </div>
-
+    <!-- JavaScript Bundle with Popper -->
+   
 </body>
 
 </html>
