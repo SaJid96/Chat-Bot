@@ -44,6 +44,7 @@ socket.on('message', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
+
     autoscroll()
 })
 
@@ -63,7 +64,9 @@ socket.on('roomData',({room,users})=>{
         room,
         users
     })
-    document.querySelector('#sideChat').innerHTML=html
+    document.querySelector('#sideChat').innerHTML=html;
+    RandomImage()
+
     console.log(room);
     console.log(users);
 })
@@ -111,3 +114,17 @@ socket.emit('join', { username, room }, (error) => {
         location.href = '/'
     }
 })
+
+function RandomImage(){
+    var randomimage=new Array()
+
+    randomimage[0]="../img/hk.png"
+    randomimage[1]="../img/sp.png"
+    randomimage[2]="../img/w-wm.png"
+    randomimage[3]="../img/ww.png"
+
+    var number=Math.floor(Math.random()* randomimage.length);
+    return document.getElementById("rimage").innerHTML='<img src="'+randomimage[number]+'"/>'
+
+
+}
